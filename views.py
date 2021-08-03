@@ -13,11 +13,7 @@ from datetime import datetime
 
 def feedback(request):
     if request.method == 'POST':
-      # if user !=login:
-      #    messages.error(request,"@login_required")
-      #    return redirect('home')
-   
-     
+      
       name = request.POST.get('name')
       lastname = request.POST.get('lastname')
       phone = request.POST.get('phone')
@@ -25,7 +21,7 @@ def feedback(request):
       feedback= Feedback(lastname=lastname, phone=phone,  name=name, dfeedback=dfeedback , date=datetime.today())
       feedback.save()
       messages.success(request, "your feedback submitted")
-      # return redirect ('home')
+  
     return render(request, 'feedback.html')
 
 
@@ -33,9 +29,6 @@ def feedback(request):
 
 def book(request):
     if request.method == 'POST':
-       
-     
-       
        
       name2 = request.POST.get('name2')
       Lastname = request.POST.get('Lastname')
